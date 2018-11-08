@@ -29,32 +29,25 @@
  * #L%
  */
 
-package net.imagej.plugins.commands.app;
-
-import java.io.IOException;
-import java.net.URL;
+package net.imagej.plugins.commands.web;
 
 import org.scijava.command.Command;
 import org.scijava.log.LogService;
 import org.scijava.menu.MenuConstants;
 import org.scijava.platform.PlatformService;
-import org.scijava.plugin.Attr;
-import org.scijava.plugin.Menu;
 import org.scijava.plugin.Parameter;
 import org.scijava.plugin.Plugin;
+
+import java.io.IOException;
+import java.net.URL;
 
 /**
  * Open the ImageJ web site in a browser.
  * 
- * @author Johannes Schindelin
+ * @author Deborah Schmidt
  */
-@Plugin(type = Command.class, iconPath = "/icons/commands/world_link.png",
-	menu = {
-		@Menu(label = MenuConstants.HELP_LABEL,
-			weight = MenuConstants.HELP_WEIGHT,
-			mnemonic = MenuConstants.HELP_MNEMONIC),
-		@Menu(label = "ImageJ Website...", weight = 42) }, headless = true, attrs = { @Attr(name = "no-legacy") })
-public class ImageJWebsite implements Command {
+@Plugin(type = Command.class, menuPath = MenuConstants.HELP_LABEL + ">ImageJ2>ImageJ Maven", iconPath = "/icons/commands/world_link.png", headless = true)
+public class OpenWebMaven implements Command {
 
 	@Parameter
 	private LogService log;
@@ -62,7 +55,7 @@ public class ImageJWebsite implements Command {
 	@Parameter
 	private PlatformService platformService;
 
-	public final static String url = "http://developer.imagej.net";
+	private final static String url = "https://maven.imagej.net/";
 
 	@Override
 	public void run() {
