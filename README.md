@@ -2,5 +2,5 @@
 
 ImageJ Plugins: Commands
 ------------------------
-
+gg
 A collection of core commands for ImageJ.
